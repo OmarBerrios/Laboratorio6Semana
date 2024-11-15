@@ -5,22 +5,19 @@
  */
 package acosta_christian_6;
 import java.awt.BorderLayout;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Random;
 import javax.swing.*;
+
 /**
  *
  * @author omarr
  */
 public class Acosta_Christian_6 extends JPanel {
 
-    private ArrayList<String> Palabras = new ArrayList<>(
-        Arrays.asList(
-            "HONDURAS", "GORILA", "CANTANTE", "ANGELES", "PALOMA", 
-            "LIBERTAD", "LABORATORIO", "TACO", "REINADO", "GORRA"
-        )
-    );
+    private String[] Palabras = {
+        "HONDURAS", "GORILA", "CANTANTE", "ANGELES", "PALOMA", 
+        "LIBERTAD", "LABORATORIO", "TACO", "REINADO", "GORRA"
+    };
 
     String palabraActual;
     StringBuilder progreso;
@@ -115,7 +112,7 @@ public class Acosta_Christian_6 extends JPanel {
     }
 
     private void iniciarJuego(JLabel Mensaje, JLabel Progreso, JLabel Oportunidades) {
-        palabraActual = Palabras.get(new Random().nextInt(Palabras.size()));
+        palabraActual = Palabras[new Random().nextInt(Palabras.length)];
         progreso = new StringBuilder();
 
         for (int i = 0; i < palabraActual.length(); i++) {
@@ -134,7 +131,6 @@ public class Acosta_Christian_6 extends JPanel {
         String nuevaPalabra = JOptionPane.showInputDialog("Ingrese una nueva palabra:");
 
         if (nuevaPalabra != null && !nuevaPalabra.trim().isEmpty()) {
-            Palabras.add(nuevaPalabra.toUpperCase());
             JOptionPane.showMessageDialog(null, "Palabra añadida exitosamente.");
         } else {
             JOptionPane.showMessageDialog(null, "No se ingresó ninguna palabra.");
